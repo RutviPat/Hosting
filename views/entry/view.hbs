@@ -1,0 +1,22 @@
+<div>
+  <p><span id="displayInfo">Name: </span>{{entry.name}}</p>
+  <p><span id="displayInfo">Phone: </span>{{entry.phone}}</p>
+  <p><span id="displayInfo">Address: </span>{{entry.address}}</p>
+  <p><span id="displayInfo">Description: </span>{{entry.description}}</p>
+
+  <a href="/entry/update/{{entry._id}}">Update</a>
+  <a id="deleteBtn" class="delete" href="#" data-entry-id="{{entry._id}}">Delete</a>
+
+  <script>
+    const deleteBtn = document.getElementById("deleteBtn");
+    deleteBtn.addEventListener('click', () => {
+      event.preventDefault();
+      const deleteConfirmed = confirm("Are you sure you want to delete?");
+
+      if (deleteConfirmed) {
+        const entryId = deleteBtn.getAttribute('data-entry-id');
+        window.location.href= `/entry/delete/${entryId}`
+      }
+    })
+  </script>
+</div>

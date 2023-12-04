@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" >
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <span>
+              <form class="searchForm" action="/entry/search" method="POST">
+                <input placeholder="Search" type="text" name="text">
+                <button type="submit">Search</button>
+              </form>
+            </span>
+          </li>
+          <li>
+            <a href="/entry/all">Entry List</a>
+          </li>
+          <li>
+            <a href="/entry/create">Create Entry</a>
+          </li>
+          <li>
+            {{#if isAuthenticated }}
+              <a href="/users/logout">Logout</a>
+            {{ else }}
+              <a href="/users/login">Login</a>
+            {{/if }}
+          </li>
+        </ul>
+      </nav>
+    </header>
+    {{{body}}}
+    <footer>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/entry/all">Entry List</a>
+        </li>
+        <li>
+          {{#if isAuthenticated }}
+            <a href="/users/logout">Logout</a>
+          {{ else }}
+            <a href="/users/login">Login</a>
+          {{/if }}
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<div>
+    <p> {{message}}</p>
+    <p class="entryTitle">All entries</p>
+    {{#each entries }}
+    <div class="item">
+        <p>Name: {{this.name}}</p>
+        <p>Address: {{this.address}}</p>
+        <a href="/entry/{{this._id}}">View</a>
+        <a href="/entry/update/{{this._id}}">Update</a>
+    </div>
+    {{/each}}
+</div>
